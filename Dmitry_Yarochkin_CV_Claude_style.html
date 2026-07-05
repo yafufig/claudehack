@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dmitry Yarochkin — CV</title>
+  <style>
+    :root {
+      --paper: #F5F4EF;
+      --surface: #FBFAF6;
+      --ink: #23201B;
+      --ink-soft: #4A463E;
+      --muted: #7A756B;
+      --rule: #E4E0D5;
+      --rule-soft: #ECE8DE;
+      --coral: #D97757;
+      --coral-deep: #B4552F;
+      --clay: #8C6A4E;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .serif {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    }
+
+    a { color: var(--coral-deep); text-decoration: none; border-bottom: 1px solid rgba(180,85,47,0.28); }
+    a:hover { border-bottom-color: var(--coral-deep); }
+
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 64px 40px 96px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero { margin-bottom: 8px; }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--coral-deep);
+      font-weight: 600;
+    }
+
+    .name {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: clamp(40px, 7vw, 68px);
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin: 14px 0 10px;
+      font-weight: 600;
+    }
+
+    .role {
+      font-size: 17px;
+      color: var(--ink-soft);
+      max-width: 640px;
+    }
+    .role b { color: var(--coral-deep); font-weight: 600; }
+
+    .contacts {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+    .contacts .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--rule); }
+    .contacts a { color: var(--muted); border: none; }
+    .contacts a:hover { color: var(--coral-deep); }
+
+    .summary {
+      margin-top: 30px;
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 760px;
+    }
+    .summary b { color: var(--ink); font-weight: 600; }
+
+    .rule {
+      height: 1px;
+      background: var(--rule);
+      border: none;
+      margin: 0;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section { margin-top: 54px; }
+
+    .sec-head { margin-bottom: 26px; }
+    .sec-head .eyebrow { display: block; margin-bottom: 8px; }
+    .sec-head h2 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 27px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    /* ---------- FIT CARDS ---------- */
+    .fit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .fit {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--coral);
+      border-radius: 4px;
+      padding: 20px 20px 18px;
+    }
+    .fit.wide { grid-column: 1 / -1; }
+    .fit h3 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 17px;
+      margin: 0 0 3px;
+      font-weight: 600;
+    }
+    .fit .who { font-size: 12.5px; color: var(--coral-deep); font-weight: 600; margin-bottom: 10px; }
+    .fit ul { margin: 0; padding-left: 16px; }
+    .fit li { margin: 6px 0; font-size: 13.5px; color: var(--ink-soft); }
+
+    /* ---------- EXPERIENCE ---------- */
+    .exp { border-top: 1px solid var(--rule-soft); }
+    .exp .row {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 26px;
+    }
+    .exp .when { color: var(--muted); font-size: 13px; padding-top: 2px; }
+    .exp .place {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      margin: 0 0 2px;
+    }
+    .exp .title { color: var(--coral-deep); font-size: 13.5px; font-weight: 600; margin-bottom: 8px; }
+    .exp ul { margin: 8px 0 0; padding-left: 17px; }
+    .exp li { margin: 5px 0; color: var(--ink-soft); font-size: 14px; }
+    .exp li b, .fit li b, .proj li b { color: var(--ink); font-weight: 600; }
+
+    /* ---------- PROJECTS ---------- */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .proj {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 22px 22px 20px;
+    }
+    .proj h3 {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 18px;
+      margin: 0 0 3px;
+      font-weight: 600;
+    }
+    .proj .sub { color: var(--coral-deep); font-size: 12.5px; font-weight: 600; margin-bottom: 10px; }
+    .proj ul { margin: 0; padding-left: 16px; }
+    .proj li { margin: 5px 0; font-size: 13.5px; color: var(--ink-soft); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .stat {
+      background: rgba(217,119,87,0.07);
+      border: 1px solid rgba(217,119,87,0.18);
+      border-radius: 4px;
+      padding: 9px 8px;
+      text-align: center;
+    }
+    .stat .v {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 18px; font-weight: 700; color: var(--coral-deep); line-height: 1;
+    }
+    .stat .l { font-size: 10.5px; color: var(--muted); margin-top: 4px; line-height: 1.2; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag {
+      font-size: 11.5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(35,32,27,0.05);
+      border: 1px solid var(--rule);
+      color: var(--ink-soft);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 34px; }
+    .skill h4 {
+      font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--coral-deep); margin: 0 0 10px; font-weight: 600;
+    }
+
+    /* ---------- TWO COLUMN ---------- */
+    .two-col { display: grid; grid-template-columns: 1.4fr 1fr; gap: 34px; }
+    .plain-list { margin: 0; padding-left: 17px; }
+    .plain-list li { margin: 7px 0; color: var(--ink-soft); }
+    .plain-list li b { color: var(--ink); font-weight: 600; }
+    .mini-head {
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      font-size: 17px; font-weight: 600; margin: 0 0 10px;
+    }
+
+    /* ---------- ACHIEVEMENTS ---------- */
+    .awards { display: flex; flex-wrap: wrap; gap: 9px; }
+    .award {
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .award b { color: var(--coral-deep); font-weight: 600; }
+
+    .foot { margin-top: 56px; text-align: center; color: var(--muted); font-size: 12.5px; }
+
+    @media (max-width: 780px) {
+      .page { padding: 44px 22px 72px; }
+      .fit-grid, .proj-grid, .skills-grid { grid-template-columns: 1fr; }
+      .exp .row { grid-template-columns: 1fr; gap: 6px; }
+      .two-col { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page { padding: 20px; max-width: 100%; }
+      .fit, .proj { background: #fff; break-inside: avoid; }
+      .stat { background: #f6f3ee; }
+      a { color: var(--ink); }
+      section { margin-top: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- HERO -->
+    <header class="hero">
+      <span class="eyebrow">AI / ML Engineer · Data Scientist</span>
+      <h1 class="name">Dmitry Yarochkin</h1>
+      <p class="role">
+        Applied ML across single-cell &amp; tabular data, sequence and graph models, and LLM / RAG / agent systems —
+        with a working <b>life-sciences</b> track record and daily <b>Claude Science &amp; Claude Code</b> practice.
+      </p>
+      <div class="contacts">
+        <span>Moscow, Russia</span><span class="dot"></span>
+        <a href="mailto:blackbonik@gmail.com">blackbonik@gmail.com</a><span class="dot"></span>
+        <span>+7 (985) 451-66-03</span><span class="dot"></span>
+        <a href="https://t.me/Squidward_Q_Tentacls">t.me/Squidward_Q_Tentacls</a><span class="dot"></span>
+        <a href="https://github.com/Fufig">github.com/Fufig</a>
+      </div>
+      <p class="summary">
+        AI/ML engineer on the AI track at Central University, currently doing Data Science at T-Bank. I take ambiguous
+        technical or biological problems, structure them into measurable tasks, build prototypes, validate with data, and
+        connect model outputs to real decisions. I've already scoped the <b>T&nbsp;cell Perturb-seq</b> problem, won a
+        <b>protein-modeling hackathon for cancer drug delivery</b>, and I use Claude to turn open questions into
+        reproducible analyses and working tools.
+      </p>
+    </header>
+
+    <!-- HACKATHON FIT -->
+    <section>
+      <div class="sec-head">
+        <span class="eyebrow">Built with Claude · Life Sciences</span>
+        <h2 class="serif">How I'd build this week</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit">
+          <h3>T cell Perturb-seq</h3>
+          <div class="who">Marson (Gladstone) × Pritchard</div>
+          <ul>
+            <li>Already scoped: rank perturbations that shift T cells toward <b>cytotoxic / activated</b> states for cancer immunotherapy.</li>
+            <li>Cluster states → shift vs. controls → rank knockouts by effect size → tie hits to literature in Claude Science.</li>
+            <li>Transfer: embeddings (PLE), differential analysis, a real instinct for <b>data leakage</b>.</li>
+          </ul>
+        </div>
+        <div class="fit">
+          <h3>DNA regulatory model</h3>
+          <div class="who">Pollard-style MPRA</div>
+          <ul>
+            <li>Train a <b>sequence → activity</b> model, then in-silico single-base mutagenesis for variant effects.</li>
+            <li>Transfer: PyTorch, CNN / transformer encoders, leakage-safe splitting.</li>
+            <li>Output: trained model + reproducible variant-effect maps.</li>
+          </ul>
+        </div>
+        <div class="fit">
+          <h3>Protein interaction networks</h3>
+          <div class="who">Krogan Lab maps</div>
+          <ul>
+            <li>Find the <b>complex / pathway</b> carrying a signal; predict a <b>missing component</b> (link prediction).</li>
+            <li>Transfer: shipped <b>120+ graph features over 250M+ records</b> to a top-5 model — same toolkit on biology.</li>
+          </ul>
+        </div>
+        <div class="fit wide">
+          <h3>Build track — if paired with a named user</h3>
+          <ul>
+            <li>Daily Claude Code user; I ship RAG assistants, agents, and FastAPI backends that outlast a hackathon (RZD knowledge-base assistant, Sechenov booking agent, an AI site builder on LangGraph + Redis).</li>
+            <li>Give me a scientist, clinic, or bioinformatician with a concrete workflow gap and I'll return working software, not a demo chatbot.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="sec-head">
+        <span class="eyebrow">Career</span>
+        <h2 class="serif">Work Experience</h2>
+      </div>
+      <div class="exp">
+        <div class="row">
+          <div class="when">2026 – Present</div>
+          <div>
+            <p class="place">T-Bank</p>
+            <div class="title">Data Science / Machine Learning</div>
+            <ul>
+              <li>Applied ML and AI tasks in a production-oriented financial environment.</li>
+              <li>Use <b>Claude Code</b> daily for coding, debugging, refactoring, research, and rapid prototyping.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">Moscow · 2025</div>
+          <div>
+            <p class="place">Yandex</p>
+            <div class="title">ML Developer Intern — Recommender Systems</div>
+            <ul>
+              <li>PLE embeddings for categorical features; researched HSTU blocks for sequential recommendation.</li>
+              <li>Built PyTorch prototypes; compared architectures; evaluated with Recall@50, NDCG, hit rate on behavioral cohorts.</li>
+              <li><b>Caught a data-leakage bug</b> in an HSTU-style setup where offline metrics improved from future info leaking into the context.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">Moscow · 2025 – Present</div>
+          <div>
+            <p class="place">YOS — AI Website Builder Startup</p>
+            <div class="title">ML Engineer / Product &amp; AI Lead</div>
+            <ul>
+              <li>Co-building an AI website builder for SMEs; agent architecture on <b>LangChain / LangGraph</b> for content, layout, and SEO.</li>
+              <li>Backend on FastAPI + Pydantic; Redis task queues for async, fault-tolerant generation.</li>
+              <li>Supported bank-partnership talks with TAM/SAM/SOM, CAGR, pricing logic, and revenue scenarios.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">Qatar, Remote · 2025</div>
+          <div>
+            <p class="place">Hired Minds</p>
+            <div class="title">ML Engineer</div>
+            <ul>
+              <li>Built an MVP for LinkedIn post generation on LLM APIs; ran CustDev to design generation filters.</li>
+              <li>Tested prompts and strategies; organized workflow in Jira (SCRUM / KANBAN).</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">Remote · 2026</div>
+          <div>
+            <p class="place">Darkstor u Doma</p>
+            <div class="title">Business Analyst</div>
+            <ul>
+              <li>Expansion analytics for a Q-commerce / express-delivery business: markets, logistics, warehousing, tax, regulation, CJM.</li>
+              <li>Prepared a phased launch strategy, localized materials, and a partner/client database.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="when">2025</div>
+          <div>
+            <p class="place">Sber</p>
+            <div class="title">AI Agents Developer Intern</div>
+            <ul>
+              <li>Worked on AI-agent tasks and applied LLM workflows — automation and product-oriented agent systems.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+      <div class="sec-head">
+        <span class="eyebrow">Selected work</span>
+        <h2 class="serif">Projects</h2>
+      </div>
+      <div class="proj-grid">
+
+        <div class="proj">
+          <h3>Protein Modeling for Cancer Drug Delivery</h3>
+          <div class="sub">Protein-modeling hackathon · Prize Winner · Team of 2</div>
+          <ul>
+            <li>Owned the <b>entire ML side solo</b> in a 2-person team — problem formulation, data, model, and results.</li>
+            <li>Used <b>RDKit</b> for molecular representations/features on a PyTorch pipeline.</li>
+            <li>Turned unfamiliar biology into a modeling task and a research-relevant result under hackathon constraints.</li>
+          </ul>
+          <div class="tags"><span class="tag">RDKit</span><span class="tag">PyTorch</span><span class="tag">Cheminformatics</span></div>
+        </div>
+
+        <div class="proj">
+          <h3>T Cell State-Shift Analysis</h3>
+          <div class="sub">Claude Science concept · Perturb-seq</div>
+          <ul>
+            <li>Identify perturbations pushing T cells toward therapeutically useful states for cancer immune response.</li>
+            <li>Workflow mapped: cluster states, compare vs. controls, surface expression programs, rank by effect size + plausibility.</li>
+            <li>Output: reproducible analysis, ranked targets, state-shift visualizations, biological rationale.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>CLIP Product Color Classifier</h3>
+          <div class="sub">Avito · CLIP, PyTorch, W&amp;B</div>
+          <ul>
+            <li>Multimodal color classification (image + text) over 18 classes.</li>
+            <li>Fine-tuned a CLIP visual encoder on 50K images; compared ViT-B/32 vs. ViT-L/14 on accuracy vs. inference.</li>
+          </ul>
+          <div class="stats">
+            <div class="stat"><div class="v">89%</div><div class="l">val accuracy</div></div>
+            <div class="stat"><div class="v">50K</div><div class="l">images</div></div>
+            <div class="stat"><div class="v">18</div><div class="l">classes</div></div>
+            <div class="stat"><div class="v">+15%</div><div class="l">vs. baseline</div></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>VTB Hack — Transfer Forecasting</h3>
+          <div class="sub">Polars, CatBoost, XGBoost, Optuna</div>
+          <ul>
+            <li>End-to-end pipeline forecasting weekly transfers between legal entities.</li>
+            <li>Engineered <b>120+</b> temporal, graph-based, and counterparty features; Optuna over 500+ trials.</li>
+          </ul>
+          <div class="stats">
+            <div class="stat"><div class="v">250M+</div><div class="l">records</div></div>
+            <div class="stat"><div class="v">120+</div><div class="l">features</div></div>
+            <div class="stat"><div class="v">80%</div><div class="l">less memory</div></div>
+            <div class="stat"><div class="v">Top-5</div><div class="l">leaderboard</div></div>
+          </div>
+        </div>
+
+        <div class="proj">
+          <h3>Healthcare Agent · Sechenov University</h3>
+          <div class="sub">Patient-facing AI · Product &amp; engineering</div>
+          <ul>
+            <li>AI agent to simplify medical appointment booking, built for real patient-facing workflows.</li>
+            <li>Requirement gathering, product discussion, team coordination with a medical university.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>RZD Knowledge-Base RAG Assistant</h3>
+          <div class="sub">Enterprise RAG</div>
+          <ul>
+            <li>RAG support system over an enterprise knowledge base: retrieval, answer quality, usable workflow.</li>
+            <li>Stack: LLM APIs, embeddings, vector search, RAG pipelines, prompt engineering, backend integration.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>AR Smart Glasses for Warehouses</h3>
+          <div class="sub">AI / AR / Logistics</div>
+          <ul>
+            <li>Explored AR for warehouse operations with a Chinese smart-glasses team; assessed Russian market entry.</li>
+            <li>Analyzed how AR could support worker navigation and operational efficiency.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>Student Events Social Product</h3>
+          <div class="sub">AI / Social / Recommendation</div>
+          <ul>
+            <li>Product helping students find friends and events around university and culture.</li>
+            <li>Supported after an MSU × T-Bank hackathon; direction includes aggregation, personalization, RAG recs.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>FM Logistic × Darkstor u Doma</h3>
+          <div class="sub">Business / Product case</div>
+          <ul>
+            <li>Partner-based express-delivery pilot strategy; build vs. partner vs. do-nothing (148M / 12–18mo vs. 2.7M OPEX / 1 quarter).</li>
+            <li>Unit economics of 565 RUB/order; break-even by month 6; pilot ROI ~1.4× over 8 months.</li>
+            <li>Secured preliminary CEO agreement for a pilot before the FM Logistic meeting.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>T-Bank Support-Chat Automation</h3>
+          <div class="sub">Product analytics / AI automation</div>
+          <ul>
+            <li>Found a UX flaw: "cancel" inside a scenario forced fallback to a human instead of returning a step.</li>
+            <li>Estimated ~4.5M RUB/year false-escalation cost; proposed agent-side intent recognition + a cancel-call button.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>Quest · Addiction-Recovery AI</h3>
+          <div class="sub">LLM / mental health / discovery</div>
+          <ul>
+            <li>MVP concept for smoking-cessation / addiction support; pitched adapting a self-awareness system for recovery.</li>
+            <li>Learned to validate partnership and ownership assumptions before a rigid collaboration structure.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>FIRST Tech Challenge Robotics</h3>
+          <div class="sub">Robotics / CV / control · 1st place</div>
+          <ul>
+            <li>PID controller with gyroscope feedback for trajectory correction.</li>
+            <li>AprilTag + color-based field detection for turn-angle correction; prototyping and assembly.</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>Restaurant Location Datathon</h3>
+          <div class="sub">Data analytics / modeling · 3rd place</div>
+          <ul>
+            <li>EDA on restaurant concentration across US states; demographics and competitive density to pick a location.</li>
+            <li>Built a 5-year financial model (staffing, inflation, expansion, break-even).</li>
+          </ul>
+        </div>
+
+        <div class="proj">
+          <h3>Data Analytics Datathon</h3>
+          <div class="sub">Team lead · 1st place</div>
+          <ul>
+            <li>Led the team, designed strategy, distributed tasks, and supervised integration.</li>
+            <li>Unified preprocessing pipeline; formulated and tested 15+ hypotheses (t-tests, chi-square, correlation).</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLAUDE + EDUCATION -->
+    <section>
+      <div class="two-col">
+        <div>
+          <div class="sec-head" style="margin-bottom:18px;">
+            <span class="eyebrow">Tooling</span>
+            <h2 class="serif">Claude Science &amp; Claude Code</h2>
+          </div>
+          <ul class="plain-list">
+            <li><b>Claude Code, daily &amp; professionally</b> — development, debugging, refactoring, and prototyping at T-Bank and in ML competitions.</li>
+            <li>Inspecting segmentation outputs, heatmaps, edge cases, failure patterns, preprocessing, and data quality — the same review loop I'd run on single-cell clusters and variant maps.</li>
+            <li><b>Claude Science</b> — pulling literature, data, and analysis into one place to reach a ranked, reproducible answer.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="sec-head" style="margin-bottom:18px;">
+            <span class="eyebrow">Study</span>
+            <h2 class="serif">Education</h2>
+          </div>
+          <p class="mini-head" style="margin-bottom:2px;">Central University</p>
+          <div style="color:var(--coral-deep);font-size:13.5px;font-weight:600;margin-bottom:8px;">
+            BSc, Mathematics &amp; CS — AI Track · Moscow, 2023–2027
+          </div>
+          <ul class="plain-list">
+            <li>State-funded student in a competitive AI program.</li>
+            <li>Linear algebra, discrete math, AI, statistics, industrial Python.</li>
+            <li>Extra: Yandex, MIPT×FPMI, HSE, SBER×HSE AI Lab, tech entrepreneurship.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+      <div class="sec-head">
+        <span class="eyebrow">Toolbox</span>
+        <h2 class="serif">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill">
+          <h4>ML / Deep Learning</h4>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">CatBoost</span><span class="tag">XGBoost</span><span class="tag">Optuna</span><span class="tag">SHAP</span><span class="tag">LIME</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Sequence / Graph / Vision</h4>
+          <div class="tags">
+            <span class="tag">Transformers</span><span class="tag">CLIP</span><span class="tag">Sequential models</span><span class="tag">Graph features</span><span class="tag">Embeddings</span><span class="tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>LLM / Agents</h4>
+          <div class="tags">
+            <span class="tag">Claude Science</span><span class="tag">Claude Code</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">ChromaDB</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Life-sciences ML</h4>
+          <div class="tags">
+            <span class="tag">RDKit</span><span class="tag">Cheminformatics</span><span class="tag">Single-cell (Perturb-seq)</span><span class="tag">Differential analysis</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Data Engineering</h4>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Polars</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Feature engineering</span><span class="tag">Time-series validation</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h4>Backend / Rigor</h4>
+          <div class="tags">
+            <span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">Leakage detection</span><span class="tag">Reproducibility</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section>
+      <div class="sec-head">
+        <span class="eyebrow">Recognition</span>
+        <h2 class="serif">Selected Achievements</h2>
+      </div>
+      <div class="awards">
+        <span class="award"><b>Prize Winner</b> — Protein Modeling for Cancer Drug Delivery</span>
+        <span class="award"><b>Top-5</b> — VTB transaction-forecasting hack</span>
+        <span class="award"><b>1st</b> — Data Analytics Datathon (team lead)</span>
+        <span class="award"><b>1st</b> — FIRST Tech Challenge</span>
+        <span class="award"><b>3rd</b> — MSU × T-Bank Hackathon, 2025</span>
+        <span class="award"><b>3rd</b> — Restaurant Location Datathon</span>
+        <span class="award">Winner / finalist in 5+ applied ML &amp; product competitions</span>
+        <span class="award">State-funded student, Central University AI track</span>
+      </div>
+    </section>
+
+    <p class="foot">Tailored for Built with Claude: Life Sciences · Anthropic × Cerebral Valley × Gladstone Institutes</p>
+
+  </main>
+</body>
+</html>
